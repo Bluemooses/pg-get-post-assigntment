@@ -33,7 +33,7 @@ function addBook(){
     let payloadObject = {
         title: $('#title').val(),
         author: $('#author').val(),
-        published: $('published').val()
+        published: $('#published').val()
     }
     console.log('Hefty load', payloadObject);
 
