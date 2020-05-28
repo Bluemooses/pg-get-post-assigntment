@@ -22,12 +22,10 @@ function getBookStore (){
             <tr>
                 <td>${book.title}</td>
                 <td>${book.author}</td>
-                <td>${book.published}</td>          
-                      
-            
+                <td>${book.published}</td>         
             `)
         }
-    })
+    });
 }
 
 //AJAX POST, COLLECTS VALUES FROM DOM, POSTS DATAOBJECT AND RELOADS OUR BOOKSTORE
