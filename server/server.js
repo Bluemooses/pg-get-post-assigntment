@@ -10,7 +10,7 @@ app.use(express.static('server/public'));
 
 // Requiring router bookstore / magazine
 let bookstore = require('./routes/bookstore.router');
-let magazines = require('./routes/bookstore.router');
+let magazines = require('./routes/magazines.router');
 app.use('/bookstore', bookstore);
 app.use('/magazines', magazines);
 

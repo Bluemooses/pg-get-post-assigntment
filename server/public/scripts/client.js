@@ -1,22 +1,22 @@
 $(document).ready(onReady);
-function onReady(){
+function onReady() {
     console.log("This app uses jQuery");
     $('#add2').on('click', addMag);
     $('#add').on('click', addBook);
     getBookStore();
-    getMag();
+    getMag();  
 }
 
 //GET BOOKSTORE ROUTER, START WITH AN EMPTY TABLE THEN APPEND THE DATA FROM RESPONSE.
-function getBookStore (){
+function getBookStore() {
     //start fresh TBody.
-    $('#bookTBody').empty(); 
+    $('#bookTBody').empty();
     $.ajax({
         type: 'GET',
         url: '/bookstore'
-    }).then(function(response) {
+    }).then(function (response) {
         console.log("Response is:", response);
-        for(let i=0; i<response.length; i++){
+        for (let i = 0; i < response.length; i++) {
             let book = response[i];
 
             console.log(book);
@@ -29,10 +29,11 @@ function getBookStore (){
         
             `)
         }
+
     });
 }
 //AJAX POST, COLLECTS VALUES FROM DOM, POSTS DATAOBJECT AND RELOADS OUR BOOKSTORE
-function addBook(){
+function addBook() {
     let payloadObject = {
         title: $('#title').val(),
         author: $('#author').val(),
@@ -47,31 +48,29 @@ function addBook(){
     }).then(function (response) {
         //resets and reloads our book store
         $('#title').val(' '),
-        $('#author').val(' '),
-        $('#published').val(' '),
-        getBookStore();
+            $('#author').val(' '),
+            $('#published').val(' '),
+            getBookStore();
     });
 
 }
 
-function getMag(){
+function getMag() {
     //start fresh TBody.
-    $('#magTBody').empty(); 
+    $('.magazineTBody').empty();
     $.ajax({
         type: 'GET',
-        url: '/magazines'
-    }).then(function(response) {
+        url: '/magazines',
+    }).then(function (response) {
         console.log("Response is:", response);
-        for(let i=0; i<response.length; i++){
+        for (let i = 0; i < response.length; i++) {
             let magazine = response[i];
-            // console.log(magazine);
-            $('#magTBody').append(`
-            <tr>
+            console.log(magazine);
+            $('.magazineTBody').append(`
+            
                 <td>${magazine.magtitle}</td>
                 <td>${magazine.issueNumber}</td>
-                <td>${book.published}</td> 
-                <td><button class="deleteBook" data-id="${magazine.id}">X</button></td>
-        
+                <td>${magazine.published}</td>        
             `)
         }
     });
@@ -79,7 +78,7 @@ function getMag(){
 
 
 
-function addMag(){
+function addMag() {
     //loading up a new dataObject
     let payloadObject = {
         magtitle: $('#magtitle').val(),
@@ -95,8 +94,9 @@ function addMag(){
     }).then(function (response) {
         $('#magtitle').val(' ');
         $('#issueNumber').val(' ');
-        $('pages').val(' ');
-    getMagazines();
-    })
+        $('#pages').val(' ');
+        getMag();
+    });
+    getMag();
 }
 
