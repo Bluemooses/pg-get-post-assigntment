@@ -37,6 +37,7 @@ router.get('/', (req, res) => {
             console.log("error making query", err);
             res.sendStatus(500)
         })
+    res.send(bookstore);
 })
 
 
