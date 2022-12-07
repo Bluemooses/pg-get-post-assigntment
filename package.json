@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/Bluemooses/pg-get-post-assigntment#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "brew": "0.0.8",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "pg": "^8.2.1",
     "pgpass": "^1.0.2",
     "postgres": "^1.0.2"
